@@ -1,10 +1,10 @@
 {# mysite/templates/base.html #}
-
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>My Django Blog</title>
-  
+    <link type="text/css" rel="stylesheet" href="{% static 'django_blog.css' %}">
   </head>
   <body>
     <div id="header">
@@ -12,7 +12,6 @@
       {% if user.is_authenticated %}
         {% if user.is_staff %}<li><a href="{% url 'admin:index' %}">admin</a></li>{% endif %}
           <li><a href="{% url 'logout' %}">logout</a></li>
-         
       {% else %}
         <li><a href="{% url 'login' %}">login</a></li>
       {% endif %}
@@ -21,7 +20,7 @@
     <div id="container">
       <div id="content">
       {% block content %}
-          [content will go here]
+       [content will go here]
       {% endblock %}
       </div>
     </div>
