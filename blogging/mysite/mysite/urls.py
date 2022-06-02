@@ -37,24 +37,24 @@ import mysite.views as mysite_views
 import blogging.views as blogging_views
 
 router = routers.DefaultRouter()
-router.register(r'users', mysite_views.UserViewSet)
-router.register(r'groups', mysite_views.GroupViewSet)
-router.register(r'posts', blogging_views.PostViewSet)
-router.register(r'categories', blogging_views.CategoryViewSet)
+router.register(r"users", mysite_views.UserViewSet)
+router.register(r"groups", mysite_views.GroupViewSet)
+router.register(r"posts", blogging_views.PostViewSet)
+router.register(r"categories", blogging_views.CategoryViewSet)
 
 urlpatterns = [
-    path('polling/', include('polling.urls')),
-    path('blogging/', include('blogging.urls')),
-    path('admin/', admin.site.urls),
-    path('', include('blogging.urls')),
-    path('login/', LoginView.as_view(template_name='login.html'), name="login"),
-    path('logout/', LogoutView.as_view(next_page='/'), name="logout"),
-    path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path("polling/", include("polling.urls")),
+    path("blogging/", include("blogging.urls")),
+    path("admin/", admin.site.urls),
+    path("", include("blogging.urls")),
+    path("login/", LoginView.as_view(template_name="login.html"), name="login"),
+    path("logout/", LogoutView.as_view(next_page="/"), name="logout"),
+    path("api/", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
 from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     # path('polling/', views.home , name = "home")
 ]
